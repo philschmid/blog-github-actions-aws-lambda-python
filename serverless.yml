@@ -1,0 +1,17 @@
+service: blog-github-actions
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: eu-central-1
+
+functions:
+  get_joke:
+    handler: handler.get_joke
+    events:
+      - http:
+          path: joke
+          method: get
+
+plugins:
+  - serverless-python-requirements
