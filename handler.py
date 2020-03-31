@@ -4,7 +4,7 @@ import pyjokes
 
 def get_joke(event, context):
     body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
+        "message": "Greetings from Githun. Your function is deployed by a Github Actions. Enjoy your joke",
         "joke":pyjokes.get_joke()
     }
     response = {

@@ -8,6 +8,13 @@ custom:
   pythonRequirements:
     dockerizePip: true
 
+package:
+  individually: false
+  exclude:
+    - package.json
+    - package-log.json
+    - node_modules/**
+
 functions:
   get_joke:
     handler: handler.get_joke
