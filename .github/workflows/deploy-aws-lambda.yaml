@@ -6,7 +6,7 @@ on:
       - master
 jobs:
   deploy:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [10.x]
@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
-        run: npm install 
+        run: npm install
       - name: serverless deploy
         uses: serverless/github-action@master
         with:
