@@ -6,13 +6,18 @@ on:
       - master
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
     steps:
       - uses: actions/checkout@master
-      - name: npm install
-        uses: actions/npm@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          args: install
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm install 
       - name: serverless deploy
         uses: serverless/github-action@master
         with:
